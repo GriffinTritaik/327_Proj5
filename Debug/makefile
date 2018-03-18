@@ -38,25 +38,21 @@ endif
 # Add inputs and outputs from these tool invocations to the build variables 
 
 # All Target
-all: 327_Proj4
-
-dependents:
-	-cd /home/keith/eclipse-workspace/327_Proj4_Lib/Debug && $(MAKE) all
+all: 327_Proj5
 
 # Tool invocations
-327_Proj4: $(OBJS) $(USER_OBJS) /home/keith/eclipse-workspace/327_Proj4_Lib/Debug/lib327_Proj4_Lib.a
+327_Proj5: $(OBJS) $(USER_OBJS)
 	@echo 'Building target: $@'
 	@echo 'Invoking: GCC C++ Linker'
-	g++ -L"/home/keith/eclipse-workspace/327_Proj4_Lib/Debug" -L"/home/keith/eclipse-workspace/327_Proj4_Lib" -o "327_Proj4" $(OBJS) $(USER_OBJS) $(LIBS)
+	g++  -o "327_Proj5" $(OBJS) $(USER_OBJS) $(LIBS)
 	@echo 'Finished building target: $@'
 	@echo ' '
 
 # Other Targets
 clean:
-	-$(RM) $(CC_DEPS)$(C++_DEPS)$(EXECUTABLES)$(C_UPPER_DEPS)$(CXX_DEPS)$(OBJS)$(CPP_DEPS)$(C_DEPS) 327_Proj4
+	-$(RM) $(CC_DEPS)$(C++_DEPS)$(EXECUTABLES)$(C_UPPER_DEPS)$(CXX_DEPS)$(OBJS)$(CPP_DEPS)$(C_DEPS) 327_Proj5
 	-@echo ' '
 
 .PHONY: all clean dependents
-/home/keith/eclipse-workspace/327_Proj4_Lib/Debug/lib327_Proj4_Lib.a:
 
 -include ../makefile.targets

@@ -4,5 +4,5 @@
 
 USER_OBJS :=
 
-LIBS := -l327_Proj4_Lib
+LIBS :=
 
