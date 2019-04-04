@@ -27,15 +27,21 @@ int total_points =25;
 //the T and U are generic params, I can substitute any type for them
 //they must be comparable with ==, templates are extremely hard to get right BTW
 template<typename T, typename U>
+
 bool EXPECT_EQ(T expectedVal, U actualVal,string testnumb = "", int pts=1){
 	bool bout = (expectedVal == actualVal);
-	if (bout){
-		total_points+=pts;
-		cout<<"SUCCESS "+testnumb<<" points:"<<total_points;
+	try{
+		if (bout){
+			total_points+=pts;
+			cout<<"SUCCESS "+testnumb<<" points:"<<total_points;
+		}
+		else
+			cout<<"FAIL "+ testnumb;
+		cout<<endl;
+	}catch(...)
+	{
+		std::cout<<"THREW EXCEPTION IN EXPECT_EQ"<<std::endl;
 	}
-	else
-		cout<<"FAIL "+ testnumb;
-	cout<<endl;
 	return bout;
 }
 bool EXPECT_CONTAINS(string expectedVal, string actualVal,string testnumb = "", int pts=1, bool bVerbose = false){
