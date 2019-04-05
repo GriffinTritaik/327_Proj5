@@ -40,11 +40,14 @@ endif
 # All Target
 all: 327_Proj5
 
+dependents:
+	-cd /tmp/guest-vs6d6q/git/327_Proj5_Lib/Debug && $(MAKE) all
+
 # Tool invocations
-327_Proj5: $(OBJS) $(USER_OBJS)
+327_Proj5: $(OBJS) $(USER_OBJS) /tmp/guest-vs6d6q/git/327_Proj5_Lib/Debug/lib327_Proj5_Lib.a
 	@echo 'Building target: $@'
 	@echo 'Invoking: GCC C++ Linker'
-	g++  -o "327_Proj5" $(OBJS) $(USER_OBJS) $(LIBS)
+	g++ -L"/tmp/guest-vs6d6q/git/327_Proj5_Lib/Debug" -o "327_Proj5" $(OBJS) $(USER_OBJS) $(LIBS)
 	@echo 'Finished building target: $@'
 	@echo ' '
 
@@ -54,5 +57,6 @@ clean:
 	-@echo ' '
 
 .PHONY: all clean dependents
+/tmp/guest-vs6d6q/git/327_Proj5_Lib/Debug/lib327_Proj5_Lib.a:
 
 -include ../makefile.targets
